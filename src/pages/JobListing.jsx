@@ -8,8 +8,11 @@ const JobListing = () => {
     <div className="">
       <Header />
       <div className="mt-8 px-8">
+  
         <JobListingOwnerActions jobListing={jobs} editable={true} />
+        
         <UpdateJob />
+        
       </div>
     </div>
   );

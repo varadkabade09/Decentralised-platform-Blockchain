@@ -1,6 +1,7 @@
 import { createGlobalState } from 'react-hooks-global-state'
 
 const { setGlobalState, useGlobalState, getGlobalState } = createGlobalState({
+  progressval:0,
   connectedAccount: '',
   currentUser: null,
   createModal: 'scale-0',

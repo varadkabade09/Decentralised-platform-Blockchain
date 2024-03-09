@@ -1,13 +1,14 @@
 import React from 'react'
-import { Header, JobBid } from '../components'
+import {  JobBid } from '../components'
 import { useGlobalState } from '../store'
+import Fheader from '../components/Fheader'
 
 const MyJobs = () => {
   const [mygigs] = useGlobalState('mygigs')
 
   return (
-    <div className="">
-      <Header />
+    <>
+      <Fheader />
       <div className="mt-11 px-4">
         <h3 className="text-xl px-4 my-4">
           {mygigs.length > 0
@@ -20,7 +21,8 @@ const MyJobs = () => {
           ))}
         </div>
       </div>
-    </div>
+      
+    </>
   )
 }
 

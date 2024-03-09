@@ -1,16 +1,18 @@
 import { CometChat } from '@cometchat-pro/chat'
 import { getGlobalState } from '../store'
 
+
 const CONSTANTS = {
-  APP_ID: process.env.REACT_APP_COMET_CHAT_APP_ID,
-  REGION: process.env.REACT_APP_COMET_CHAT_REGION,
-  Auth_Key: process.env.REACT_APP_COMET_CHAT_AUTH_KEY,
+  APP_ID: "25308180ee503826",
+  REGION: "in",
+  Auth_Key: "cfe5867c921642ed70a2244d4fb5334989bddf1f",
 }
 
 const initCometChat = async () => {
+  const [connectedAccount] = getGlobalState('connectedAccount');
   const appID = CONSTANTS.APP_ID
   const region = CONSTANTS.REGION
-
+  console.log(connectedAccount)
   const appSetting = new CometChat.AppSettingsBuilder()
     .subscribePresenceForAllUsers()
     .setRegion(region)

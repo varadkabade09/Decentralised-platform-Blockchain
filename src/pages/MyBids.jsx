@@ -1,13 +1,14 @@
 import React from 'react'
-import { Header, JobBid } from '../components'
+import {  JobBid } from '../components'
 import { useGlobalState } from '../store'
+import Fheader from '../components/Fheader'
 
 const MyBids = () => {
   const [mybidjobs] = useGlobalState('mybidjobs')
 
   return (
     <div className="">
-      <Header />
+      <Fheader />
       <div className="mt-11 px-4">
         <h3 className="text-xl px-4 my-4">
           {mybidjobs.length > 0

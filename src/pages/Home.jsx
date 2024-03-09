@@ -1,10 +1,11 @@
-import React from 'react'
-import { Header, Hero, CreateJob } from '../components'
+import Cheader from '../components/Cheader'
+import {  Hero } from '../components';
+import CreateJob from '../components/CreateJob';
 
 const Home = () => {
   return (
     <div>
-      <Header />
+      <Cheader />
       <Hero />
       <CreateJob />
     </div>

@@ -1,4 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
+import Profile from './Profile'
+import Fhome from './pages/Fhome.jsx'
+import Fmessages from './pages/Fmessages.jsx'
+import CreateJob from './components/CreateJob.jsx'
 import {
   Home,
   JobListing,
@@ -15,6 +19,7 @@ import { isWalletConnected } from './services/blockchain'
 import AuthenticatedRoutes from './utils/AuthenticatedRoutes'
 import Authenticate from './pages/Authenticate'
 import { useGlobalState } from './store'
+import Login from './components/Login.jsx';
 
 const App = () => {
   const [connectedAccount] = useGlobalState('connectedAccount')
@@ -25,7 +30,11 @@ const App = () => {
   return (
     <div className="min-h-screen font-[poppins]">
       <Routes>
-        <Route path="/" element={<Home />} />
+       <Route path="/" element={<Login />} />
+        <Route path="/chome" element={<Home />} />
+        <Route path="/fhome" element={<Fhome />} />
+        <Route path="/create" element={<CreateJob />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/joblisting/:id" element={<JobListing />} />
         <Route path="/myprojects" element={<MyProjects />} />
         <Route path="/viewbidders/:id" element={<ViewBidders />} />
@@ -35,6 +44,7 @@ const App = () => {
 
         <Route element={<AuthenticatedRoutes />}>
           <Route path="/messages" element={<RecentConversations />} />
+          <Route path="/fmessages" element={<Fmessages />} />
           <Route path="/chats/:id" element={<Chats />} />
         </Route>
       </Routes>

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { setGlobalState, useGlobalState, truncate } from '../store'
 import Identicon from 'react-identicons'
 import { getMessages, sendMessage, listenForMessage } from '../services/chat'
-import Header from '../components/Fheader.jsx'
+import Header  from '../components/Fheader'
 
 const Chats = () => {
   
