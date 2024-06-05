@@ -45,7 +45,7 @@ const Chats = () => {
       <Header />
       <div
         className="bg-gray-100 rounded-2xl h-[calc(100vh_-_13rem)]
-    w-4/5 flex flex-col justify-between relative mx-auto mt-8 border-t border-t-gray-100"
+    w-4/5 flex flex-col justify-between relative mx-auto mt-8 border-t border-t-gray-100 font-[Signika]"
       >
         <h1
           className="text-2xl font-bold text-center absolute top-0
@@ -82,10 +82,10 @@ const Message = ({ message, uid }) => {
   const [connectedAccount] = useGlobalState('connectedAccount')
 
   return uid == connectedAccount ? (
-    <div className="flex justify-end items-center space-x-4 mb-3">
+    <div className="flex justify-end items-center space-x-4 mb-3 font-[Signika]">
       <div
         className="flex flex-col bg-white py-2 px-4 space-y-2
-      rounded-full rounded-br-none shadow-sm"
+      rounded-full rounded-br-none shadow-sm font-[Signika]"
       >
         <div className="flex items-center space-x-2">
           <Identicon
@@ -99,7 +99,7 @@ const Message = ({ message, uid }) => {
       </div>
     </div>
   ) : (
-    <div className="flex justify-start items-center space-x-4 mb-3">
+    <div className="flex justify-start items-center space-x-4 mb-3 font-[Signika]">
       <div
         className="flex flex-col bg-white py-2 px-4 space-y-2
       rounded-full rounded-bl-none shadow-sm"

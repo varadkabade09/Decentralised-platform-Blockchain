@@ -19,13 +19,13 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white w-full mx-auto p-5 flex justify-between items-center flex-wrap shadow-md">
+    <header className="bg-white w-full mx-auto p-5 flex justify-between items-center flex-wrap shadow-md font-[Signika]">
       
       
-      <Link className="text-green-600 font-[risque] text-2xl" to={'/chome'}>
-        Fiver
+      <Link className="text-green-600 font-[Signika] text-4xl" to={'/chome'}>
+        Decentralized Freelance Marketplace
       </Link>
-      <div className="items-center space-x-5 md:block hidden">
+      <div className="items-center space-x-5 md:block hidden text-xl">
         <Link to={'/mybids'} className="text-gray-600">
           {/* My Bids */}
         </Link>
@@ -40,12 +40,12 @@ const Header = () => {
 
         {connectedAccount ? (
           <>
-          <button className="bg-green-500 text-white py-1 px-5 rounded-full">
+          <button className="bg-green-500 text-white py-1 px-5 rounded-full font-[Signika]">
             {/* {truncate(connectedAccount, 4, 4, 11)} */}
             <button className="" onClick={handleClick}>My Profile</button>
 
             {showSettings && (
-              <div className="bg-white p-8 text-left shadow-md rounded-md p-2 absolute top-14 right-28 z-10 ">
+              <div className="bg-white p-8 text-left shadow-md rounded-md p-2 absolute top-14 right-28 z-10 font-[Signika] ">
               <a href="/profile" className="block mb-2 text-gray-600">View Profile</a>
               <a href="/" className="block mt-4 text-gray-600">Sign out</a>
             </div>

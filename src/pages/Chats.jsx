@@ -8,31 +8,46 @@ import Header from '../components/Fheader.jsx'
 const Chats = () => {
   
   const { id } = useParams()
-  const [messages] = useGlobalState('messages')
+  const [messages, setMessages] = useGlobalState('messages')
   const [currentUser] = useGlobalState('currentUser')
   const [message, setMessage] = useState('')
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    getMessages(id).then((msgs) => setGlobalState('messages', msgs))
-    handleListener()
-  }, [currentUser])
+    const fetchData = async () => {
+      try {
+        const msgs = await getMessages(id)
+        setMessages(msgs)
+        handleListener()
+      } catch (error) {
+        setError(error)
+      }
+    }
+    fetchData()
+  }, [id, currentUser, setMessages])
 
   const onSendMessage = async (e) => {
     e.preventDefault()
     if (!message) return
 
-    await sendMessage(id, message).then((msg) => {
-      setGlobalState('messages', (prevState) => [...prevState, msg])
+    try {
+      const msg = await sendMessage(id, message)
+      setMessages(prevMessages => [...prevMessages, msg])
       setMessage('')
       scrollToEnd()
-    })
+    } catch (error) {
+      setError(error)
+    }
   }
 
   const handleListener = async () => {
-    await listenForMessage(id).then((msg) => {
-      setGlobalState('messages', (prevState) => [...prevState, msg])
+    try {
+      const msg = await listenForMessage(id)
+      setMessages(prevMessages => [...prevMessages, msg])
       scrollToEnd()
-    })
+    } catch (error) {
+      setError(error)
+    }
   }
 
   const scrollToEnd = () => {
@@ -45,7 +60,7 @@ const Chats = () => {
       <Header />
       <div
         className="bg-gray-100 rounded-2xl h-[calc(100vh_-_13rem)]
-    w-4/5 flex flex-col justify-between relative mx-auto mt-8 border-t border-t-gray-100"
+    w-4/5 flex flex-col justify-between relative mx-auto mt-8 border-t border-t-gray-100 font-[Signika]"
       >
         <h1
           className="text-2xl font-bold text-center absolute top-0
@@ -57,11 +72,17 @@ const Chats = () => {
           id="messages-container"
           className="h-[calc(100vh_-_20rem)] overflow-y-scroll w-full p-4 pt-16"
         >
-          {messages.length > 0
-            ? messages.map((msg, index) => (
+          {error ? (
+            <div>Error: {error.message}</div>
+          ) : (
+            messages.length > 0 ? (
+              messages.map((msg, index) => (
                 <Message message={msg.text} uid={msg.sender.uid} key={index} />
               ))
-            : 'No message yet'}
+            ) : (
+              'No message yet'
+            )
+          )}
         </div>
         <form onSubmit={onSendMessage} className="w-full">
           <input
@@ -81,8 +102,8 @@ const Chats = () => {
 const Message = ({ message, uid }) => {
   const [connectedAccount] = useGlobalState('connectedAccount')
 
-  return uid == connectedAccount ? (
-    <div className="flex justify-end items-center space-x-4 mb-3">
+  return uid === connectedAccount ? (
+    <div className="flex justify-end items-center space-x-4 mb-3 font-[Signika]">
       <div
         className="flex flex-col bg-white py-2 px-4 space-y-2
       rounded-full rounded-br-none shadow-sm"
@@ -99,7 +120,7 @@ const Message = ({ message, uid }) => {
       </div>
     </div>
   ) : (
-    <div className="flex justify-start items-center space-x-4 mb-3">
+    <div className="flex justify-start items-center space-x-4 mb-3 font-[Signika]">
       <div
         className="flex flex-col bg-white py-2 px-4 space-y-2
       rounded-full rounded-bl-none shadow-sm"

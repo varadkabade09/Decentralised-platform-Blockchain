@@ -32,7 +32,7 @@ const JobListingCard = ({ jobListing }) => {
   }
 
   return (
-    <div className="border-b border-l border-r border-gray-300 py-6 px-5">
+    <div className="border-b border-l border-r border-gray-300 py-6 px-5 font-[Signika]">
       <h4>{jobListing.jobTitle}</h4>
       <div className="flex mt-2 items-center">
         <FaEthereum className="text-md cursor-pointer" />

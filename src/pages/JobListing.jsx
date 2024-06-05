@@ -5,9 +5,9 @@ import UpdateJob from '../components/UpdateJob';
 
 const JobListing = () => {
   return (
-    <div className="">
+    <div className="font-[Signika]">
       <Header />
-      <div className="mt-8 px-8">
+      <div className="mt-8 px-8 font-[Signika]">
   
         <JobListingOwnerActions jobListing={jobs} editable={true} />
         

@@ -15,7 +15,7 @@ const MyBids = () => {
             ? 'Jobs You Applied For'
             : "You Haven't Bid on Any Jobs Yet."}
         </h3>
-        <div className="px-3">
+        <div className="px-3 font-[Signika]">
           {mybidjobs.length > 0
             ? mybidjobs.map((mybidjob, i) => (
                 <JobBid key={i} jobListing={mybidjob} />

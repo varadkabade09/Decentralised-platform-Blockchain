@@ -33,10 +33,10 @@ const Payout = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center
+      className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center font-[Signika]
     bg-black bg-opacity-50 transform z-50 transition-transform duration-300 ${payoutModal}`}
     >
-      <div className="bg-white text-black rounded-xl w-11/12 md:w-2/5 h-7/12 px-6 py-3">
+      <div className="bg-white text-black rounded-xl w-11/12 md:w-2/5 h-7/12 px-6 py-3 font-[Signika]">
         <div className="relative">
           <div>
             <div className="text-center flex justify-center items-center p-2 my-3">

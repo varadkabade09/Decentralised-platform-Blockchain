@@ -74,7 +74,7 @@ const UpdateJob = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center
+      className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center font-[Signika]
     bg-black bg-opacity-50 transform z-50 transition-transform duration-300 ${updateModal}`}
     >
       <div className="bg-white text-black shadow-md shadow-green-500 rounded-xl w-11/12 md:w-2/5 h-7/12 p-6">

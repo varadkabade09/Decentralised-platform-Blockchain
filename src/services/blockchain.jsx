@@ -3,6 +3,7 @@ import abi from '../abis/src/contracts/DappWorks.sol/DappWorks.json'
 import address from '../abis/contractAddress.json'
 import { ethers } from 'ethers'
 import { logOutWithCometChat } from './chat'
+import { toast } from 'react-toastify'
 
 const { ethereum } = window
 const ContractAddress = address.address
@@ -85,8 +86,7 @@ const addJobListing = async ({ jobTitle, description, tags, prize }) => {
       await loadData()
       resolve(tx)
     } catch (err) {
-      reportError(err)
-      reject(err)
+      toast.error("Error in Creating the Job")
     }
   })
 }
@@ -102,8 +102,7 @@ const updateJob = async ({ id, jobTitle, description, tags }) => {
       await loadData()
       resolve(tx)
     } catch (err) {
-      reportError(err)
-      reject(err)
+      toast.error("Error in updating the Job")
     }
   })
 }
@@ -119,8 +118,7 @@ const deleteJob = async (id) => {
       await loadData()
       resolve(tx)
     } catch (err) {
-      reportError(err)
-      reject(err)
+      toast.error("Error in Deleting the Job")
     }
   })
 }
@@ -136,8 +134,7 @@ const bidForJob = async (id) => {
       await getJobs()
       resolve(tx)
     } catch (err) {
-      reportError(err)
-      reject(err)
+      toast.error("Error in Creating the bidForJob")
     }
   })
 }
@@ -154,8 +151,7 @@ const acceptBid = async (id, jId, bidder) => {
       await getBidders(jId)
       resolve(tx)
     } catch (err) {
-      reportError(err)
-      reject(err)
+      toast.error("Error in Accepting the bid")
     }
   })
 }
@@ -171,8 +167,8 @@ const dispute = async (id) => {
       await getJob(id)
       resolve(tx)
     } catch (err) {
-      reportError(err)
-      reject(err)
+      console.log(err)
+      console.log(err)
     }
   })
 }
@@ -188,8 +184,8 @@ const resolved = async (id) => {
       await getJob(id)
       resolve(tx)
     } catch (err) {
-      reportError(err)
-      reject(err)
+      console.log(err)
+      console.log(err)
     }
   })
 }
@@ -205,8 +201,8 @@ const revoke = async (jId, id) => {
       await getJob(id)
       resolve(tx)
     } catch (err) {
-      reportError(err)
-      reject(err)
+      console.log(err)
+      console.log(err)
     }
   })
 }
@@ -222,8 +218,8 @@ const payout = async (id) => {
       await getMyJobs()
       resolve(tx)
     } catch (err) {
-      reportError(err)
-      reject(err)
+      console.log(err)
+      console.log(err)
     }
   })
 }
@@ -235,7 +231,7 @@ const bidStatus = async (id) => {
     const status = await contract.bidStatus(id)
     setGlobalState('status', status)
   } catch (err) {
-    reportError(err)
+    console.log(err)
   }
 }
 
@@ -246,7 +242,7 @@ const getBidders = async (id) => {
     const bidders = await contract.getBidders(id)
     setGlobalState('bidders', structuredBidder(bidders))
   } catch (err) {
-    reportError(err)
+    console.log(err)
   }
 }
 
@@ -257,7 +253,7 @@ const getFreelancers = async (id) => {
     const freelancers = await contract.getFreelancers(id)
     setGlobalState('freelancers', structuredFreelancers(freelancers))
   } catch (err) {
-    reportError(err)
+    console.log(err)
   }
 }
 
@@ -268,7 +264,7 @@ const getAcceptedFreelancer = async (id) => {
     const freelancer = await contract.getAcceptedFreelancer(id)
     setGlobalState('freelancer', structuredFreelancers([freelancer])[0])
   } catch (err) {
-    reportError(err)
+    console.log(err)
   }
 }
 
@@ -279,7 +275,7 @@ const getJobs = async () => {
     const jobs = await contract.getJobs()
     setGlobalState('jobs', structuredJobs(jobs))
   } catch (err) {
-    reportError(err)
+    console.log(err)
   }
 }
 
@@ -290,7 +286,7 @@ const getMyJobs = async () => {
     const jobs = await contract.getMyJobs()
     setGlobalState('myjobs', structuredJobs(jobs))
   } catch (err) {
-    reportError(err)
+    console.log(err)
   }
 }
 const getMyGigs = async () => {
@@ -300,7 +296,7 @@ const getMyGigs = async () => {
     const jobs = await contract.getAssignedJobs()
     setGlobalState('mygigs', structuredJobs(jobs))
   } catch (err) {
-    reportError(err)
+    console.log(err)
   }
 }
 const getMyBidJobs = async () => {
@@ -310,7 +306,7 @@ const getMyBidJobs = async () => {
     const jobs = await contract.getJobsForBidder()
     setGlobalState('mybidjobs', structuredJobs(jobs))
   } catch (err) {
-    reportError(err)
+    console.log(err)
   }
 }
 
@@ -321,7 +317,7 @@ const getJob = async (id) => {
     const job = await contract.getJob(id)
     setGlobalState('job', structuredJobs([job])[0])
   } catch (err) {
-    reportError(err)
+    console.log(err)
   }
 }
 

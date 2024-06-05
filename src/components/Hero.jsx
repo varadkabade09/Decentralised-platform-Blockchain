@@ -31,16 +31,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="min-h-[89vh]">
+    <section className="min-h-[89vh] font-[Signika]">
       <button
-        className="p-3 bg-green-500 rounded-full text-white fixed bottom-7 right-2"
+        className="p-3 bg-green-500 rounded-full text-white fixed bottom-7 right-2 font-[Signika]"
         onClick={openModal}
       >
         <FaPlus />
       </button>
-      <main className="mt-11 sm:px-11 px-3">
+      <main className="mt-11 sm:px-11 px-3 font-[Signika]">
         <div className="p-3">
-          <h3 className="text-gray-600 text-2xl border-[1px] rounded-t-lg border-gray-300 py-5 px-3">
+          <h3 className="text-gray-600 text-2xl border-[1px] rounded-t-lg border-gray-300 py-5 px-3 font-[Signika]">
             {jobs.length > 0 ? 'Job listings' : 'No jobs yet'}
           </h3>
           {jobs.length > 0 &&

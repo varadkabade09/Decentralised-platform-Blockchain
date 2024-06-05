@@ -1,5 +1,7 @@
 import { CometChat } from '@cometchat-pro/chat'
 import { getGlobalState } from '../store'
+import { toast } from 'react-toastify'
+
 
 
 const CONSTANTS = {
@@ -30,7 +32,7 @@ const loginWithCometChat = async () => {
   return new Promise(async (resolve, reject) => {
     await CometChat.login(UID, authKey)
       .then((user) => resolve(user))
-      .catch((error) => reject(error))
+      .catch((error) => console.log(error))
   })
 }
 
@@ -43,7 +45,7 @@ const signUpWithCometChat = async () => {
   return new Promise(async (resolve, reject) => {
     await CometChat.createUser(user, authKey)
       .then((user) => resolve(user))
-      .catch((error) => reject(error))
+      .catch((error) => console.log(error))
   })
 }
 
@@ -59,7 +61,7 @@ const isUserLoggedIn = async () => {
   return new Promise(async (resolve, reject) => {
     await CometChat.getLoggedinUser()
       .then((user) => resolve(user))
-      .catch((error) => reject(error))
+      .catch((error) => console.log(error))
   })
 }
 
@@ -67,7 +69,7 @@ const getUser = async (UID) => {
   return new Promise(async (resolve, reject) => {
     await CometChat.getUser(UID)
       .then((user) => resolve(user))
-      .catch((error) => reject(error))
+      .catch((error) => console.log(error))
   })
 }
 
@@ -82,7 +84,7 @@ const getMessages = async (UID) => {
     await messagesRequest
       .fetchPrevious()
       .then((messages) => resolve(messages.filter((msg) => msg.type == 'text')))
-      .catch((error) => reject(error))
+      .catch((error) => console.log(error))
   })
 }
 
@@ -97,7 +99,7 @@ const sendMessage = async (receiverID, messageText) => {
   return new Promise(async (resolve, reject) => {
     await CometChat.sendMessage(textMessage)
       .then((message) => resolve(message))
-      .catch((error) => reject(error))
+      .catch((error) => console.log(error))
   })
 }
 
@@ -111,7 +113,7 @@ const getConversations = async () => {
     await conversationsRequest
       .fetchNext()
       .then((conversationList) => resolve(conversationList))
-      .catch((error) => reject(error))
+      .catch((error) => console.log(error))
   })
 }
 

@@ -26,10 +26,10 @@ const MyProjects = () => {
   return (
     <div>
       <Header />
-      <div className="px-5 my-7">
+      <div className="px-5 my-7 font-[Signika]">
         {myjobs.map((myjob, i) => (
 
-          <div key={i} className="my-5 p-4 bg-white rounded shadow-md">
+          <div key={i} className="my-5 p-4 bg-white rounded sha`dow-md font-[Signika]">
             
             <JobListingOwnerActions
               jobListing={myjob}
@@ -38,7 +38,7 @@ const MyProjects = () => {
           </div>
         ))}
         {myjobs.length < 1 && (
-          <h2 className="text-lg text-gray-500 mt-4">No Posted Jobs Yet</h2>
+          <h2 className="text-lg text-gray-500 mt-4 font-[Signika]">No Posted Jobs Yet</h2>
         )}
         <div className="flex justify-between mt-5">
           <UpdateJob />

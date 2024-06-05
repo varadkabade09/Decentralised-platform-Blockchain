@@ -59,12 +59,12 @@ const JobListingOwnerActions = ({ jobListing, editable }) => {
   }
 
   return (
-    <div className="border-t border-b border-l border-r border-gray-300 py-3 px-5 mt-2">
+    <div className="border-t border-b border-l border-r border-gray-300 py-3 px-5 mt-2 font-[Signika]">
 
       <div>
-        <div className='flex  '>
+        <div className='flex  font-[Signika]'>
           <h4>{jobListing.jobTitle}</h4>
-          {!jobListing.listed && (<h1 className="text-lg font-semibold text-gray-800 ml-[470px]">Progress of Freelancer</h1>)}
+          {!jobListing.listed && (<h1 className="text-lg font-semibold text-gray-800 ml-[470px] font-[Signika]">Progress of Freelancer</h1>)}
         </div>
 
         <div className="flex mt-2 items-center">
@@ -133,7 +133,7 @@ const JobListingOwnerActions = ({ jobListing, editable }) => {
                   '0x0000000000000000000000000000000000000000' && (
                     <Link
                       to={`/chats/${jobListing.freelancer}`}
-                      className="flex items-center px-3 py-1 border-[1px] border-green-500 text-green-500 space-x-2 rounded-md"
+                      className="flex items-center px-3 py-1 border-[1px] border-green-500 text-green-500 space-x-2 rounded-md font-[Signika]"
                     >
                       <span className="text-sm">Chat with freelancer</span>
                     </Link>
@@ -144,7 +144,7 @@ const JobListingOwnerActions = ({ jobListing, editable }) => {
 
             {jobListing.listed && (
               <button
-                className="text-sm py-1 px-3 bg-green-400 text-white flex items-center space-x-3 rounded-md"
+                className="text-sm py-1 px-3 bg-green-400 text-white flex items-center space-x-3 rounded-md font-[Signika]"
                 onClick={() => viewBidders(jobListing.id)}
               >
                 <span>View bidders</span>
@@ -153,18 +153,34 @@ const JobListingOwnerActions = ({ jobListing, editable }) => {
             )}
             {!jobListing.listed && !jobListing.paidOut && (
               <>
-                {check && (<button
+                {check && (
+                  <>
+                <button
                   onClick={openPayoutModal}
-                  className="flex items-center px-3 py-1 border-[1px] border-sky-500 text-sky-500 space-x-2 rounded-md"
+                  className="flex items-center px-3 py-1 border-[1px] border-sky-500 text-sky-500 space-x-2 rounded-md font-[Signika]"
                 >
                   <FaMoneyBill />
                   <span className="text-sm">Pay</span>
-                </button>)}
+                </button>
+                </>
+              )}
+              {check && (
+                  <>
+                <a
+                target="_blank" 
+                  href='https://pages.razorpay.com/pl_NwzhgXN98CmbtY/view'
+                  className="flex items-center px-3 py-1 border-[1px] border-sky-500 text-sky-500 space-x-2 rounded-md font-[Signika]"
+                >
+                  <FaMoneyBill />
+                  <span className="text-sm">Pay using Card/UPI</span>
+                </a>
+                </>
+              )}
                 {jobListing.freelancer !=
                   '0x0000000000000000000000000000000000000000' && (
                     <Link
                       to={`/chats/${jobListing.freelancer}`}
-                      className="flex items-center px-3 py-1 border-[1px] border-green-500 text-green-500 space-x-2 rounded-md"
+                      className="flex items-center px-3 py-1 border-[1px] border-green-500 text-green-500 space-x-2 rounded-md font-[Signika]"
                     >
                       <span className="text-sm">Chat with freelancer</span>
                     </Link>
@@ -191,4 +207,4 @@ const JobListingOwnerActions = ({ jobListing, editable }) => {
   )
 }
 
-export default JobListingOwnerActions
+export default JobListingOwnerActions;

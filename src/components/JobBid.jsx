@@ -5,7 +5,7 @@ import ProgressBar from '@ramonak/react-progress-bar';
 
 const JobBid = ({ jobListing }) => {
   return (
-    <div className="border-t border-b border-l border-r border-gray-300 py-6 px-5 flex flex-row">
+    <div className="border-t border-b border-l border-r border-gray-300 py-6 px-5 flex flex-row font-[Signika]">
       <div>
         <h4>{jobListing.jobTitle}</h4>
         <div className="flex mt-2 items-center">
@@ -30,15 +30,15 @@ const JobBid = ({ jobListing }) => {
         <div className="flex mt-5">
           <Link
             to={`/chats/${jobListing.owner}`}
-            className="flex items-center px-3 py-1 border-[1px] border-green-500 text-green-500 space-x-2 rounded-md"
+            className="flex items-center px-3 py-1 border-[1px] border-green-500 text-green-500 space-x-2 rounded-md font-[Signika]"
           >
             <span className="text-sm">Chat with owner</span>
           </Link>
         </div>
       </div>
 
-      <div className="flex flex-col items-start mt-4 ml-[300px]">
-        <h1 className="ml-4 text-lg font-semibold text-gray-800">
+      <div className="flex flex-col items-start mt-4 ml-[300px] font-[Signika]">
+        <h1 className="ml-4 text-lg font-semibold text-gray-800 font-[Signika]">
           Progress Evaluated by Client
         </h1>
         <div className="p-4">

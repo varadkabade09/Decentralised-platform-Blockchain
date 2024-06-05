@@ -19,7 +19,7 @@ const RecentConversations = () => {
     <>
       <Fheader />
 
-      <div className="w-full sm:w-3/5 mx-auto mt-8 px-3">
+      <div className="w-full sm:w-3/5 mx-auto mt-8 px-3 font-[Signika]">
         <h1 className="text-2xl font-bold text-center">Your Recent chats</h1>
         {recentConversations?.map((conversation, index) => (
           <Link

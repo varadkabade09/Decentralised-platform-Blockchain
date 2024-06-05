@@ -34,42 +34,43 @@ const CreateJob = () => {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    if (jobTitle == '' || prize == '' || skills.length < 3 || description == '')
-      return
-
+    e.preventDefault();
+  
+    if (jobTitle === '' || prize === '' || skills.length < 3 || description === '') {
+      return;
+    }
+  
     const params = {
       jobTitle,
       description,
       tags: skills.slice(0, 5).join(','),
-      description,
       prize,
+    };
+  
+    try {
+      await toast.promise(
+        new Promise(async (resolve) => {
+          const tx = await addJobListing(params);
+          closeModal();
+          resolve(tx);
+        }),
+        {
+          pending: 'Approve transaction...',
+          success: 'job added successfully 👌',
+          error: 'Encountered error 🤯',
+        }
+      );
+    } catch (error) {
+      console.error('Error occurred while adding job listing:', error);
     }
-
-    await toast.promise(
-      new Promise(async (resolve, reject) => {
-        await addJobListing(params)
-          .then(async (tx) => {
-            closeModal()
-            resolve(tx)
-          })
-          .catch(() => reject())
-      }),
-      {
-        pending: 'Approve transaction...',
-        success: 'job added successfully 👌',
-        error: 'Encountered error 🤯',
-      }
-    )
-  }
-
+  };
+  
   return (
     <div
-      className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center
+      className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center font-[Signika]
     bg-black bg-opacity-50 transform z-50 transition-transform duration-300 ${createModal}`}
     >
-      <div className="bg-white text-black shadow-md shadow-green-500 rounded-xl w-11/12 md:w-2/5 h-7/12 p-6">
+      <div className="bg-white text-black shadow-md shadow-green-500 rounded-xl w-11/12 md:w-2/5 h-7/12 p-6 font-[Signika]">
         <div className="relative">
           <button
             onClick={closeModal}

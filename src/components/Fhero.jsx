@@ -19,7 +19,7 @@ const Hero = () => {
       >
         <FaPlus className="" />
       </button> */}
-      <main className="mt-11 sm:px-11 px-3">
+      <main className="mt-11 sm:px-11 px-3 font-[Signika]">
         <div className="p-3">
           <h3 className="text-gray-600 text-2xl border-[1px] rounded-t-lg border-gray-300 py-5 px-3">
             {jobs.length > 0 ? "Job listings" : "No jobs yet"}

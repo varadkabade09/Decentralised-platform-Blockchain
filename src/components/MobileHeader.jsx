@@ -8,11 +8,11 @@ const MobileHeader = ({ toggle }) => {
 
   return (
     <section
-      className={`md:hidden block absolute top-5 right-0 py-3 px-4 bg-white shadow-lg rounded-md ${
+      className={`md:hidden block absolute top-5 right-0 py-3 px-4 bg-white shadow-lg rounded-md font-[Signika] ${
         toggle ? 'visible' : 'invisible'
       }`}
     >
-      <div className="flex flex-col space-y-3">
+      <div className="flex flex-col space-y-3 font-[Signika]">
         <Link to={'/mybids'} className="text-gray-600">
           My Bids
         </Link>
@@ -27,12 +27,12 @@ const MobileHeader = ({ toggle }) => {
         </Link>
 
         {connectedAccount ? (
-          <button className="bg-green-500 text-white py-1 px-5 rounded-sm">
+          <button className="bg-green-500 text-white py-1 px-5 rounded-sm font-[Signika]">
             {truncate(connectedAccount, 4, 4, 11)}
           </button>
         ) : (
           <button
-            className="bg-green-500 text-white py-1 px-5 rounded-full"
+            className="bg-green-500 text-white py-1 px-5 rounded-full font-[Signika]"
             onClick={connectWallet}
           >
             connect wallet

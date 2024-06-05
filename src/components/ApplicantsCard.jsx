@@ -24,7 +24,7 @@ const ApplicantsCard = ({ bidder }) => {
   return (
     <div
       className="my-3 bg-white shadow-lg p-3 rounded-lg flex justify-between
-    items-center border-[1px] border-gray-300 flex-wrap"
+    items-center border-[1px] border-gray-300 flex-wrap font-[Signika]"
     >
       <h4>{truncate(bidder.account, 4, 4, 11)}</h4>
       <div className="flex items-center space-x-3">

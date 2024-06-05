@@ -18,11 +18,11 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white w-full mx-auto p-5 flex justify-between items-center flex-wrap shadow-md">
-      <Link className="text-green-600 font-[risque] text-2xl" to={'/fhome'}>
-        Fiver
+    <header className="bg-white w-full mx-auto p-5 flex justify-between items-center flex-wrap shadow-md font-[Signika] ">
+      <Link className="text-green-600 font-[Signika] text-4xl" to={'/fhome'}>
+        Decentralized Freelance Marketplace
       </Link>
-      <div className="items-center space-x-5 md:block hidden">
+      <div className="items-center space-x-5 md:block hidden font-[Signika] text-xl">
         <Link to={'/mybids'} className="text-gray-600">
           My Bids
         </Link>
